@@ -1,0 +1,25 @@
+{
+  "name": "Coconut Calc",
+  "short_name": "CoconutCalc",
+  "description": "A coconut-themed calculator that chops and serves a fresh coconut as you calculate.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffe9b8",
+  "theme_color": "#2fa8a0",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

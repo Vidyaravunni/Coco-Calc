@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Coconut Calc</title>
+<meta name="description" content="A coconut-themed calculator that chops and serves a fresh coconut as you calculate.">
+<meta name="theme-color" content="#2fa8a0">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="CoconutCalc">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- LEFT COCONUT TREE -->
+  <svg class="tree tree-left" viewBox="0 0 200 600" preserveAspectRatio="xMinYMax meet" aria-hidden="true">
+    <path class="trunk" d="M110 600 C 90 480, 130 380, 95 260 C 80 200, 100 140, 130 100"
+          fill="none" stroke="#7a5230" stroke-width="18" stroke-linecap="round"/>
+    <path class="trunk-band" d="M104 560 q 14 -8 26 0" fill="none" stroke="#5c3b1e" stroke-width="6" stroke-linecap="round"/>
+    <path class="trunk-band" d="M100 480 q 16 -10 30 0" fill="none" stroke="#5c3b1e" stroke-width="6" stroke-linecap="round"/>
+    <path class="trunk-band" d="M97 400 q 16 -10 30 0" fill="none" stroke="#5c3b1e" stroke-width="6" stroke-linecap="round"/>
+    <path class="trunk-band" d="M100 320 q 16 -10 28 0" fill="none" stroke="#5c3b1e" stroke-width="6" stroke-linecap="round"/>
+
+    <!-- leaves -->
+    <g class="leaves">
+      <path d="M130 100 C 60 70, 20 90, 0 60 C 50 60, 90 70, 130 100" fill="#3f8c4a"/>
+      <path d="M130 100 C 70 50, 60 10, 90 -20 C 110 30, 120 70, 130 100" fill="#4aa257"/>
+      <path d="M130 100 C 150 40, 200 20, 210 -10 C 190 40, 165 70, 130 100" fill="#3f8c4a"/>
+      <path d="M130 100 C 180 60, 220 70, 250 50 C 210 90, 170 100, 130 100" fill="#4aa257"/>
+      <path d="M130 100 C 120 40, 150 0, 145 -30 C 120 10, 115 60, 130 100" fill="#57b567"/>
+    </g>
+
+    <!-- hanging coconuts -->
+    <g class="hang-coco">
+      <path d="M124 105 q 6 20 4 34" fill="none" stroke="#6b4526" stroke-width="3"/>
+      <ellipse cx="130" cy="150" rx="15" ry="17" fill="#5b3a29" stroke="#3e2317" stroke-width="2"/>
+    </g>
+    <g class="hang-coco">
+      <path d="M136 108 q 14 16 16 36" fill="none" stroke="#6b4526" stroke-width="3"/>
+      <ellipse cx="154" cy="156" rx="13" ry="15" fill="#5b3a29" stroke="#3e2317" stroke-width="2"/>
+    </g>
+  </svg>
+
+  <!-- RIGHT COCONUT TREE (mirrored) -->
+  <svg class="tree tree-right" viewBox="0 0 200 600" preserveAspectRatio="xMaxYMax meet" aria-hidden="true">
+    <path class="trunk" d="M90 600 C 110 480, 70 380, 105 260 C 120 200, 100 140, 70 100"
+          fill="none" stroke="#7a5230" stroke-width="18" stroke-linecap="round"/>
+    <path class="trunk-band" d="M96 560 q -14 -8 -26 0" fill="none" stroke="#5c3b1e" stroke-width="6" stroke-linecap="round"/>
+    <path class="trunk-band" d="M100 480 q -16 -10 -30 0" fill="none" stroke="#5c3b1e" stroke-width="6" stroke-linecap="round"/>
+    <path class="trunk-band" d="M103 400 q -16 -10 -30 0" fill="none" stroke="#5c3b1e" stroke-width="6" stroke-linecap="round"/>
+    <path class="trunk-band" d="M100 320 q -16 -10 -28 0" fill="none" stroke="#5c3b1e" stroke-width="6" stroke-linecap="round"/>
+
+    <g class="leaves">
+      <path d="M70 100 C 140 70, 180 90, 200 60 C 150 60, 110 70, 70 100" fill="#3f8c4a"/>
+      <path d="M70 100 C 130 50, 140 10, 110 -20 C 90 30, 80 70, 70 100" fill="#4aa257"/>
+      <path d="M70 100 C 50 40, 0 20, -10 -10 C 10 40, 35 70, 70 100" fill="#3f8c4a"/>
+      <path d="M70 100 C 20 60, -20 70, -50 50 C -10 90, 30 100, 70 100" fill="#4aa257"/>
+      <path d="M70 100 C 80 40, 50 0, 55 -30 C 80 10, 85 60, 70 100" fill="#57b567"/>
+    </g>
+
+    <g class="hang-coco">
+      <path d="M76 105 q -6 20 -4 34" fill="none" stroke="#6b4526" stroke-width="3"/>
+      <ellipse cx="70" cy="150" rx="15" ry="17" fill="#5b3a29" stroke="#3e2317" stroke-width="2"/>
+    </g>
+    <g class="hang-coco">
+      <path d="M64 108 q -14 16 -16 36" fill="none" stroke="#6b4526" stroke-width="3"/>
+      <ellipse cx="46" cy="156" rx="13" ry="15" fill="#5b3a29" stroke="#3e2317" stroke-width="2"/>
+    </g>
+  </svg>
+
+  <main class="stage">
+    <div class="card">
+
+      <!-- MASCOT -->
+      <div class="mascot-pop intro" id="mascotPop">
+      <div class="mascot" id="mascot">
+        <svg viewBox="0 0 120 130" class="mascot-svg">
+
+          <ellipse class="shadow" cx="60" cy="112" rx="34" ry="8"/>
+
+          <!-- WHOLE COCONUT -->
+          <g id="coconutWhole" class="whole">
+            <circle cx="60" cy="62" r="40" fill="#5b3a29" stroke="#3e2317" stroke-width="3"/>
+            <ellipse cx="46" cy="46" rx="10" ry="16" fill="#7a523c" opacity="0.55"/>
+            <path d="M30 60 q30 -14 60 0" stroke="#3e2317" stroke-width="1.5" fill="none" opacity="0.35"/>
+            <path d="M28 76 q32 12 64 0" stroke="#3e2317" stroke-width="1.5" fill="none" opacity="0.35"/>
+            <circle cx="52" cy="30" r="4" fill="#2b1810"/>
+            <circle cx="64" cy="27" r="4" fill="#2b1810"/>
+            <circle cx="70" cy="35" r="4" fill="#2b1810"/>
+
+            <!-- single horizontal top cut, drawn left-to-right as you type -->
+            <line id="topCut" class="cut" x1="28" y1="38" x2="92" y2="38"/>
+          </g>
+
+          <!-- OPENED / SERVED COCONUT -->
+          <g id="coconutOpen" class="opened-group">
+            <!-- sliced-off top cap, tilted aside -->
+            <g class="cap">
+              <path d="M-20 6 A20 12 0 0 1 20 6 Z" fill="#5b3a29" stroke="#3e2317" stroke-width="2.5"/>
+              <path d="M-16 6 A16 8 0 0 1 16 6 Z" fill="#f4ead6"/>
+            </g>
+
+            <!-- bottom shell -->
+            <path d="M20 55 A40 40 0 0 0 100 55 Z" fill="#5b3a29" stroke="#3e2317" stroke-width="3"/>
+            <path d="M26 55 A34 34 0 0 0 94 55 Z" fill="#f4ead6"/>
+            <ellipse cx="60" cy="55" rx="30" ry="10" fill="#bfe6d8" stroke="#8fd0bb" stroke-width="1.5"/>
+
+            <!-- straw -->
+            <g class="straw">
+              <rect x="56" y="10" width="7" height="55" rx="3.5" fill="#ffffff" stroke="#e3554f" stroke-width="1.2" transform="rotate(-14 60 40)"/>
+              <rect x="56" y="10" width="7" height="6" rx="3" fill="#e3554f" transform="rotate(-14 60 40)"/>
+              <rect x="56" y="26" width="7" height="6" rx="3" fill="#e3554f" transform="rotate(-14 60 40)"/>
+              <rect x="56" y="42" width="7" height="6" rx="3" fill="#e3554f" transform="rotate(-14 60 40)"/>
+            </g>
+
+            <!-- little umbrella -->
+            <g class="umbrella" transform="translate(90,42)">
+              <path d="M0 0 L18 0 L9 -12 Z" fill="#f2a33a"/>
+              <path d="M-14 -2 L0 0 L-9 -12 Z" fill="#e3554f"/>
+              <line x1="0" y1="0" x2="2" y2="20" stroke="#caa06b" stroke-width="1.5"/>
+            </g>
+
+            <!-- sparkles -->
+            <g class="sparkle">
+              <path d="M22 26 l2 6 6 2 -6 2 -2 6 -2 -6 -6 -2 6 -2z" fill="#fff3c8"/>
+              <path d="M96 30 l1.5 4 4 1.5 -4 1.5 -1.5 4 -1.5 -4 -4 -1.5 4 -1.5z" fill="#fff3c8"/>
+            </g>
+          </g>
+        </svg>
+      </div>
+      </div>
+
+      <div class="header-row">
+        <div class="brand">🥥 Coconut Calc</div>
+        <button class="history-btn" id="historyBtn" title="History" aria-label="Open history">🕘</button>
+      </div>
+
+      <div class="display">
+        <div class="prev" id="prevDisplay">&nbsp;</div>
+        <div class="curr" id="currDisplay">0</div>
+      </div>
+
+      <div class="keys">
+        <button class="key op-key" data-action="clear">AC</button>
+        <button class="key op-key" data-action="backspace">⌫</button>
+        <button class="key op-key" data-op="%">%</button>
+        <button class="key op-key accent" data-op="/">÷</button>
+
+        <button class="key" data-num="7">7</button>
+        <button class="key" data-num="8">8</button>
+        <button class="key" data-num="9">9</button>
+        <button class="key op-key accent" data-op="*">×</button>
+
+        <button class="key" data-num="4">4</button>
+        <button class="key" data-num="5">5</button>
+        <button class="key" data-num="6">6</button>
+        <button class="key op-key accent" data-op="-">−</button>
+
+        <button class="key" data-num="1">1</button>
+        <button class="key" data-num="2">2</button>
+        <button class="key" data-num="3">3</button>
+        <button class="key op-key accent" data-op="+">+</button>
+
+        <button class="key wide" data-num="0">0</button>
+        <button class="key" data-action="decimal">.</button>
+        <button class="key equals" data-action="equals">=</button>
+      </div>
+    </div>
+  </main>
+
+  <div class="backdrop" id="backdrop"></div>
+  <aside class="history-panel" id="historyPanel">
+    <div class="history-head">
+      <span>🥥 History</span>
+      <button id="closeHistory" aria-label="Close history">✕</button>
+    </div>
+    <ul class="history-list" id="historyList"></ul>
+    <button class="clear-history" id="clearHistory">Clear history</button>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'coconut-calc-v1';
+const CACHE_NAME = 'coconut-calc-v2';
 const APP_SHELL = [
   './',
   './index.html',

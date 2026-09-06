@@ -84,7 +84,7 @@
         let r;
         if (op === '*') r = prev * num;
         else if (op === '/') r = num === 0 ? NaN : prev / num;
-        else r = prev % num;
+        else r = (prev * num) / 100;
         vals.push(r);
       } else {
         vals.push(op, num);
